@@ -4,13 +4,12 @@ import './index.css'
 import App from './components/App'
 import * as serviceWorker from './serviceWorker'
 import { StoreProvider } from "./components/Store"
+import 'antd-mobile/dist/antd-mobile.css'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <StoreProvider>
-      <App />
-    </StoreProvider>
-  </React.StrictMode>,
+  <StoreProvider>
+    <App />
+  </StoreProvider>,
   document.getElementById('root')
 );
 

@@ -1,15 +1,15 @@
 import React from 'react'
 import '../App.css'
-import { IStoreProvider, ITodoState } from '../interface';
-import { Store } from './Store';
+import { IStoreProvider, ITodoState } from '../interface'
+import { Store } from './Store'
+import { Button } from 'antd-mobile'
 
 const App: React.FC = (): JSX.Element => { 
   const { state, dispatch }: IStoreProvider = React.useContext(Store);
 
   const [value, setValue] = React.useState<string>("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     if (!value.trim()) return;
     dispatch({
       type: "ADD_TODO",
@@ -22,10 +22,10 @@ const App: React.FC = (): JSX.Element => {
   };
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
+      <div>
         <input value={value} onChange={e => setValue(e.target.value)} />
-        <button type="submit">Add Todo</button>
-      </form>
+        <Button type="primary" onClick={handleSubmit} >Add Todo</Button>
+      </div>
       <ul>
       {state.todos.map(
         (todo: ITodoState) => (
