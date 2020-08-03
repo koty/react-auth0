@@ -19,6 +19,8 @@
     "noEmit": true,
     "jsx": "react"
   },
+  "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+  "semicolon": [true, "never"],
   "include": [
     "src"
   ]
